@@ -1,57 +1,53 @@
 
 <br>
 <!-- Sign In -->
-
+<h1>
 <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<div class="LoginHeader">
+<table border=1px cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+        <%= f.label :email %>
+      </td>
+      <td>
+        <%= f.label :password %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.email_field :email, autofocus: true %>
+      </td>
+      <td>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </td>
+      <td>
+        <%= f.submit "Sign in" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <% if devise_mapping.rememberable? -%>
+            <div>
+              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+            </div>
+        <% end -%>      
+      </td>
+      <td>
+        <%- if devise_mapping.recoverable? && controller_name != 'passwords' &&   controller_name != 'registrations' %>
+              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <% end -%>
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  </div>
 <% end -%>
-  
+  </h1>
 <!-- Sign-Up -->
-<%= link_to('Sign Up', '/users/sign_up') %>
+
 <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
 </br>
 
-<%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
-  <%= devise_error_messages! %>
 
-<div>
-  <%= f.text_field :fname, placeholder: "First Name" %></div>
-
-<div><br />
-  <%= f.text_field :lname, placeholder: "Last Name" %></div>
-
-  <div><br />
-  <%= f.email_field :email, autofocus: true, placeholder: "Email" %></div>
-
-  <div><br />
-    <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %></div>
-
-  <div><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Re-type Password" %></div>
-
-  
-<% end %>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
 <%= link_to'Sign Up with Venmo', user_omniauth_authorize_path(:venmo) %>     
