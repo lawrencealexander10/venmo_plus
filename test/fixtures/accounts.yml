@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  remaining_borrow: 1.5
+  lending_funds: 1.5
+  collateral: 1.5
+  balance: 1.5
+
+two:
+  user_id: 1
+  remaining_borrow: 1.5
+  lending_funds: 1.5
+  collateral: 1.5
+  balance: 1.5

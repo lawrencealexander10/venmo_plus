@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1.5
+  message: MyText
+  expiration_date: 2014-06-12 08:30:19
+  completed: false
+
+two:
+  amount: 1.5
+  message: MyText
+  expiration_date: 2014-06-12 08:30:19
+  completed: false
