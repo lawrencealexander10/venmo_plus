@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 h1{
-	font-size: 16px;
+	font-size: 13px;
 	position: fixed;
-	width: 100%;
-	top: 0;
+	width: 95%;
+	top: 0px;
+	height: 60px;
+	background-color: blue;
+	margin: 0;
 	
 	
 }
 .LoginHeader {
 float: right;
-border: 0px; 
-cellspacing: 0;
-margin: 0px;
-	
+border: 1px; 	
 }
