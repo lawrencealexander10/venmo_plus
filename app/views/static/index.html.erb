@@ -1,53 +1,18 @@
-
+<%= render "/layouts/header" %>
 
 <!-- Sign In -->
-<h1>
-<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-<div class="LoginHeader">
-<table cellpadding="0" border="1">
-  <tbody>
-    <tr>
-      <td>
-        <%= f.label :email %>
-      </td>
-      <td>
-        <%= f.label :password %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= f.email_field :email, autofocus: true %>
-      </td>
-      <td>
-        <%= f.password_field :password, autocomplete: "off" %>
-      </td>
-      <td>
-        <%= f.submit "Sign in" %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <% if devise_mapping.rememberable? -%>
-            <div>
-              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-            </div>
-        <% end -%>      
-      </td>
-      <td>
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' &&   controller_name != 'registrations' %>
-              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-          <% end -%>
-      </td>
-    </tr>
-  </tbody>
-  </table>
-  </div>
-<% end -%>
-  </h1>
+
 <!-- Sign-Up -->
-
+<button type="button" class="btn btn-warning">Logout</button>
 <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-</br>
 
-
+<button type="button" class="btn btn-info">Sign Up With Venmo</button>
 <%= link_to'Sign Up with Venmo', user_omniauth_authorize_path(:venmo) %>     
+  
+  </br>
+</br></br></br>
+
+<%= render "/layouts/howto" %>
+
+
+<!-- container, row, col -->

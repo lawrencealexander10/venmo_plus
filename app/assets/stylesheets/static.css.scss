@@ -1,18 +1,42 @@
 /*// Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
-h1{
+/*h1{
 	font-size: 13px;
 	position: fixed;
 	width: 95%;
 	top: 0px;
-	height: 60px;
+	height: 80px;
 	background-color: blue;
-	margin: 0;
-	
-	
-}
+	margin: 0;	
+}*/
+
+@import "bootstrap";
+@import "bootstrap_overrides";
+
+body {
+	background-image: url("/assets/table_mountain.jpg");
+	background-position: center;
+
+	/*background-image: url("/assets/simgrid.gif");
+	opacity: 0.8;
+*/}
+
 .LoginHeader {
-float: right;
-border: 1px; 	
+	margin-top: 10px;
+	margin-right: 10px;
+	float: right;
+}
+
+
+.howto {
+background:rgba(0,0,0,0.5);
+color: white;
+text-align: center;
+}
+
+.howto p{
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
 }
