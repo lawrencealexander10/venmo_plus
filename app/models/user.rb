@@ -12,14 +12,14 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     User.where(auth.slice(:uid)).first_or_create do |user|
       user.uid = auth.uid
-      user.fname = auth.extra.raw_info.firstname
+      user.fname = auth.info.first_name
       user.email = auth.info.email
-      user.lname = auth.extra.raw_info.lastname
-      user.profile_pic = auth.info.image
+      user.lname = auth.info.last_name
+      user.profile_pic = auth.extra.raw_info.profile_picture_url
       user.token = auth.credentials.token
 
       account = user.account || Account.create(:user_id => user.id)
-      account.balance = auth.info.balance
+      # account.balance = auth.info.balance
       account.save  
     end
   end
