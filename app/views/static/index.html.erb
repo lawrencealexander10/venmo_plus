@@ -1,64 +1,15 @@
 <%= render "/static/header" %>
 
-<!-- Sign In -->
-<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-<div class="LoginHeader">
-<table border=1px cellspacing="0">
-  <tbody>
-    <tr>
-      <td>
-        <%= f.label :email %>
-      </td>
-      <td>
-        <%= f.label :password %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= f.email_field :email, autofocus: true %>
-      </td>
-      <td>
-        <%= f.password_field :password, autocomplete: "off" %>
-      </td>
-      <td>
-        <%= f.submit "Sign in" %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <% if devise_mapping.rememberable? -%>
-            <div>
-              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-            </div>
-        <% end -%>      
-      </td>
-      <td>
-        <%- if devise_mapping.recoverable? && controller_name != 'passwords' &&   controller_name != 'registrations' %>
-              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-          <% end -%>
-      </td>
-    </tr>
-  </tbody>
-  </table>
-  </div>
-<% end -%>
-<!-- Sign-Up -->
-
 <!-- Sign-Up -->
 <button type="button" class="btn btn-warning">Logout</button>
-<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-</br>
-<br>
-</br>
-<br>
-</br>
-
-
 <button type="button" class="btn btn-info">Sign Up With Venmo</button>
+<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+
+
+</br>
+
 <%= link_to'Sign Up with Venmo', user_omniauth_authorize_path(:venmo) %>     
-  
-  </br>
-</br></br></br>
+
 
 <%= render "/static/howto" %>
 
