@@ -15,9 +15,12 @@ body {
 
 
 .howto {
-background:rgba(0,0,0,0.5);
-color: white;
-text-align: center;
+	background:rgba(0,0,0,0.5);
+	color: white;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding-top: 100px;
 }
 
 .howto p{
@@ -26,16 +29,55 @@ text-align: center;
 	padding-right: 5px;
 }
 
+.howto_images {
+	width: 100px;
+	padding-top: 10px;
+}
+
 .static_header {
 /*	background-attachment: fixed;
 */	
-	background:rgba(0,0,0,0.5);
-/*	width: 100%;
-	height: 100%;*/
+	background:rgba(0,0,0,0.8);
+	width: 100%;
+	height: 100%;
 }
 
 .brand {
-	color: #21c84e;
+	color: #186cc8;
 	font-weight: bold;
-	font-size: 160%;
+	font-size: 100px;
+	text-align: center;
+/*	margin-top: 80px*/
 }
+
+.venmo_sign_up_button {
+	margin-right: 45%;
+}
+
+
+.company_logo img{
+	max-width: 100px;
+	margin: 100px 45% 0;
+}
+
+
+.company_summary span{
+	color: #186cc8;
+}
+
+.company_summary h1{
+	color: white;
+	margin: 30px 200px;
+	text-align: center;
+	
+}
+
+
+/*.summary_wrap{
+
+	border: solid 2px;
+	border-color: black;
+}*/
+
+
+
