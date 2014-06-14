@@ -3,6 +3,7 @@ class TransfersController < ApplicationController
   end
 
   def new
+  	@transfers= Transfer.new
   end
 
   def create

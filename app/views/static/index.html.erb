@@ -1,7 +1,6 @@
 
 <br>
 <!-- Sign In -->
-<h1>
 <%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
 <div class="LoginHeader">
 <table border=1px cellspacing="0">
@@ -43,11 +42,13 @@
   </table>
   </div>
 <% end -%>
-  </h1>
 <!-- Sign-Up -->
 
 <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
 </br>
-
+<br>
+</br>
+<br>
+</br>
 
 <%= link_to'Sign Up with Venmo', user_omniauth_authorize_path(:venmo) %>     
