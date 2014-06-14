@@ -1,10 +1,12 @@
-i<div class="container">
+<div class="container">
 
 
   <div class="row">
     <div class="col-sm-2">
       <ul class="nav sidebar red-nav">
-        <li class="active">My Account info:</li>
+        <li class="active">My Account:</li>
+        <li class = "side side_col">Amount left to borrow:</li>
+        <li class = "money borrow_amount"> $x </li>
         <li class = "side side_col"> Current collatoral:</li>
         <li class = "money"> $x </li>
         <li>  <%= link_to('change collatoral amount',
@@ -25,7 +27,7 @@ i<div class="container">
         </ul>
         <div class="row">
           <div class="col-md-6">
-          <%=link_to 'Borrow!', '/transfers/create', :class => "btn btn-primary btn-lg active", :method => :get%>
+          <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%>
           </div>
         </div>
     </div>

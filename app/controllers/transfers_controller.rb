@@ -3,10 +3,11 @@ class TransfersController < ApplicationController
   end
 
   def new
-  	@transfers= Transfer.new
+  	@transfer= Transfer.new
   end
 
   def create
+  
   end
 
   def delete

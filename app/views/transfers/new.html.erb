@@ -1,2 +1,23 @@
-<h1>Transfers#new</h1>
-<p>Find me in app/views/transfers/new.html.erb</p>
+<h1>Borrow Money</h1>
+
+<p>you currently have $<%=current_user.account.balance%></P>
+
+<%= form_for(@transfer, url: '/transfers/create', method: 'post	') do |f| %>
+<div class = "container"
+	<div class = "row">
+		<div class = "form-group col-md-4">
+			<%= f.label :amount  %>
+			<%= f.number_field :amount, :class => 'form-control borrow' %>
+ 		</div>
+ 	</div>
+ 	<div class = "row">
+	  	<div class="form-group col-md-5">
+	    	<%= f.label :message %>
+	    	<%= f.text_area :message, :class => "form-control borrow" %>
+	  	</div>
+  	</div>
+ 	 <div class="form-group col-md-2	">
+    	<%= f.submit "borrow money!", :class => "btn btn-success" %>
+  	</div>
+</div>
+<% end %>
