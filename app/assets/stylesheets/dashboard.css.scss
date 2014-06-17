@@ -24,6 +24,12 @@
 	margin-top: 15px;
 }
 
+.img-thumbnail {
+	height: 200px ;
+	width: 200px;
+
+}
+
 .active {
 	font-weight: bold;
 	font-size: 110%;
@@ -37,7 +43,7 @@
 }
 
 .money {
-	margin-left: 45px;
+	margin-top: 25px;
 }
 
 .down {
@@ -81,4 +87,20 @@
 
 .date_payment_due {
 	margin-left: 100px;
+}
+
+.date_payment_due {
+
+margin-top: -5px;	
+
+}
+
+.my_account {
+	text-align: center;
+
+}
+
+.account_button {
+	margin-bottom: 20px;
+
 }

@@ -2,36 +2,43 @@
 
 
   <div class="row">
-    <div class="col-sm-2">
-      <ul class="nav sidebar red-nav">
-        <li class="active">My Account:</li>
-        <li class = "side side_col">Amount left to borrow:</li>
-        <li class = "money borrow_amount"> $x </li>
-        <li class = "side side_col"> Current collatoral:</li>
-        <li class = "money"> $x </li>
-        <li>  <%= link_to('change collatoral amount',
-    '/accounts/update', :method => :get) %></li>
-        <li class = "side side_lend">Current lending funds:</li>
-        <li class = "money"> $x </li>
-        <li><a href="#">change lending amount</a></li>
-      </ul>
+    <div class = "container">
+        <div class = "col-md-2">
+          <h2  class = "my_account">My Account:</h2>
+          <img class = "img-thumbnail" src=<%=current_user.profile_pic%>> 
+        </div>
+        <br></br>
+        <br></br>
+        <div class = "col-md-2">
+          <h4>Amount left to borrow: </h4>
+        </div>     
+          <p class = "col-md-2 money"> $x </p>
+          <p class = "col-md-2 account_button"> <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%></p>
+        <div class = "row">
+          <h4 class = "col-md-2 col-md-offset-2"> Current collatoral:</h4>
+          <p class = "col-md-2 money"> $x </p>
+          <p class = "col-md-2 account_button">  <%=link_to 'change collatoral', '/accounts/update', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></p>
+        </div>
+        <div class = "row">
+          <h4 class = "col-md-4 col-md-offset-2">Current lending funds:</h4>
+          <p class = "col-md-2 money"> $x </p>
+          <p class = "col-md-4 account_button">
+          <%=link_to 'change lending amount', '/accounts/update', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></p>
+        </div>  
     </div>
-    <div class="col-md-4  down">
-      <h2>You are borrowing:</h2>
-        <ul class="list-group">
-          <li class="list-group-item">item 1 for $x</li>
-          <li class="list-group-item">item 2 for $x</li>
-          <li class="list-group-item">item 3 for $x</li>
-          <li class="list-group-item">item 4 for $x</li>
-          <li class="list-group-item">item 5 for $x</li>
-        </ul>
+  </div>
+   <div class = "row">
+    <div class="container">
+    
         <div class="row">
-          <div class="col-md-6">
-          <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%>
+          <div class="">
+       
           </div>
         </div>
     </div>
-    <div class="col-md-5 down">
+  </div>
+  <div class = "row">
+    <div class="container down">
       <h2 class = "track">Track your payments:</h2>
        <div class="progress">
         <% percent = "40" %>
@@ -40,16 +47,25 @@
           </div>
       </div>
         <div class="row">
-        <div class="col-md-6">
+        <div class="container">
+            <h2>You are borrowing:</h2>
+              <ul class="list-group">
+                <li class="list-group-item">item 1 for $x <%=link_to 'Make Payment!', '/transfers/create', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></li>
+                <li class="list-group-item">item 2 for $x <%=link_to 'Make Payment!', '/transfers/create', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></li>
+                <li class="list-group-item">item 3 for $x <%=link_to 'Make Payment!', '/transfers/create', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></li>
+                <li class="list-group-item">item 4 for $x <%=link_to 'Make Payment!', '/transfers/create', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></li>
+                <li class="list-group-item">item 5 for $x <%=link_to 'Make Payment!', '/transfers/create', :class => "btn btn-primary btn-sm active pay date_payment_due", :method => :get%></li>
+            </ul>
+              <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%>
            <h3 class="make_payment_text">Your next payment is due:</h3>
          </div>
          </div>
          <div class ="row">
          <div class ="col-md-6">  
-           <h4> Today
-            <%=link_to 'Make Payment!', '/transfers/create', :class => "btn btn-primary btn-lg active pay date_payment_due", :method => :get%></h4>
+           <h4> Today </h4>
+           
         </div>
     </div>  
     </div> 
-  </div>
+ 
 </div>
