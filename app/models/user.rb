@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
 	  end    
 	end
 
+   def self.all_except(user)
+  where.not(id: user)
+  end
+
   protected
 
   def create_account

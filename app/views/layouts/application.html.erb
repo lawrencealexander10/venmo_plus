@@ -2,12 +2,24 @@
 <html>
 <head>
 
-  <title>Venmo Plus</title>
+  <title>Seed | Social Lending</title>
    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
+	<div class="container">
+  <% if flash[:success] %>
+    <div class="success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+  <% if flash[:error] %>
+    <div class="error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+  <%= yield %>
+</div>
 </body>
 </html>
