@@ -133,7 +133,7 @@ validates :amount, presence: true
 
 			return [transfer, "You just borrowed $#{total_borrow_amount}"]
 		else
-			return [false, "Please enter a message"]
+			return [false, "Please enter a message and amount"]
 		end
 	end
 
