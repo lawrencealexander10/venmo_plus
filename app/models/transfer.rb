@@ -1,6 +1,8 @@
 class Transfer < ActiveRecord::Base
 	belongs_to :account
-	has_many :transactions
+	has_many :transactions, :dependent => :destroy
+validates :message, presence: true
+validates :amount, presence: true
 
 
 
@@ -14,7 +16,7 @@ class Transfer < ActiveRecord::Base
 		#set variable n=5
 		n = 5
 		
-		@users = User.all_except(@user)
+		@users = User.all_except(user)
 		@users.each do |i|
 			total += i.account.lending_funds
 		end
@@ -26,6 +28,8 @@ class Transfer < ActiveRecord::Base
 			return [false, "Not enough money"]
 		elsif total_borrow_amount<0
 			return [false, "You cant borrow negative money"]
+		elsif User.all_except(user)
+			return [false, "You don't have any friends"]
 		end
 
 		#Sort all users excluding self by lending amount
@@ -101,7 +105,8 @@ class Transfer < ActiveRecord::Base
 			
 		end
 		if transfer.save
-			transfer.update_attributes(account_id: user.account.id)
+			expiration_date= transfer.created_at+30.days
+			transfer.update_attributes(account_id: user.account.id, :completed => false, :expiration_date => expiration_date)
 		#creating a transaction for every lender borrow and deducting from their account
 			sorted_funds.each do |key, value|
 				transaction= Transaction.create!(:transfer_id => transfer.id, :lender_id => key,  :lend_amount => value)
@@ -116,12 +121,64 @@ class Transfer < ActiveRecord::Base
 			my_new_remaining_borrow= user.account.remaining_borrow - transfer.amount
 			user.account.update_attributes(:remaining_borrow => my_new_remaining_borrow)
 
-			return [transfer, "Transfer created for #{transfer.amount}"]
+			return [transfer, "You just borrowed $#{transfer.amount}"]
 		end
 	end
 
 	# def self.update_transfer(update_params, user)
 		
 	# end	 
+	def self.update_transfer(update_params, user)
+		#use current transfer 
+		total_payment_amount= update_params[:amount].to_f
+		current_transfer= 
+
+		if total_payment_amount<0
+			return [false, "Not a valid amount"]
+		elsif total_payment_amount>current_transaction.amount
+			return [false, "Payment is too much"]
+		end
+
+
+		current_lenders= current_transfer.transaction.all
+		current_lenders.pluck(:lender_id, :lend_amount).to_h
+
+		sorted_funds = funds.sort_by{|u,l| l}.reverse
+		sorted_funds = sorted_funds.to_h
+		n=1
+		payment_check = sorted_funds.first(n).map(&:second)
+
+		local_total = 0
+		local_total = payment_check.inject(:+)
+		while local_total < total_payment_amount
+			# if lending funds from bottom n friends is less then amount then
+			# add 1 user onto number of lenders
+			n +=1
+			borrow_check = sorted_funds.first(n).map(&:second)
+			# sum up the amount of lending funds with new lender(s)
+			local_total = borrow_check.inject(:+)
+		end
+			# if total lending funds > total amount
+			# subtract total lending funds from total amount
+			# give that extra money back to the last user 
+			borrow_check[-1] = (local_total - total_payment_amount)
+
+			borrow_check.each_index do |i|
+				sorted_funds[sorted_funds.keys[i]] = borrow_check[i]
+			
+			end
+			sorted_funds.each do |key, value|
+				transaction= current_transfer.transaction.where(id: key)
+				new_transaction_amount = transaction.amount- value
+				transaction.update_attributes(amount: new_transaction_amount)
+				transaction.payment(value)
+
+			end
+
+
+			new_amount= current_transfer.amount- total_payment_amount
+			current_transfer.update_attributes(amount: new_amount)
+			user.account.remaining_borrow += total_payment_amount
+	end
 
 end

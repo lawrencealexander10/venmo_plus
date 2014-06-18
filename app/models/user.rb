@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_one :account
+	has_one :account, :dependent => :destroy
 	has_many :transfers, through: :accounts
   has_many :transactions, through: :accounts
   # Include default devise modules. Others available are:
@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   # validates :fname, :lname, presence: true
   validates :email, presence: true, uniqueness: true
+
   #validetes :uid, uniqueness: true
 
   after_create :create_account
@@ -40,7 +41,7 @@ class User < ActiveRecord::Base
   protected
 
   def create_account
-    Account.create!(:user_id => self.id, :balance => 500)
+    Account.create!(:user_id => self.id, :balance => 500, :remaining_borrow => 0, lending_funds: 0)
   end
 
 end

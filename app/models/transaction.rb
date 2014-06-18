@@ -7,4 +7,9 @@ class Transaction < ActiveRecord::Base
 		account.update_attributes(:lending_funds => new_amount)
 	end
 
+	def payment(value)
+		account= Account.find_by(user_id: self.lender_id)
+		new_amount= account.lending_funds + value
+		account.update_attributes(:lending_funds => new_amount)
+	end
 end
