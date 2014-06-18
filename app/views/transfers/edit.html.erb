@@ -1,0 +1,17 @@
+<h1>Make Payment</h1>
+
+<p>you currently owe $<%= @transfer %></P>
+
+<%= form_for(@transfer, url: '/transfers/update', method: 'post') do |f| %>
+<div class = "container"
+	<div class = "row">
+		<div class = "form-group col-md-4">
+			<%= f.label :amount  %>
+			<%= f.number_field :amount, :class => 'form-control borrow' %>
+ 		</div>
+ 	</div>
+ 	 <div class="form-group col-md-2">
+    	<%= f.submit "borrow money!", :class => "btn btn-success" %>
+  	</div>
+</div>
+<% end %>

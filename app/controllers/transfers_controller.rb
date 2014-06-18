@@ -24,6 +24,13 @@ class TransfersController < ApplicationController
     @user= current_user
     result = Transfer.update_transfer(update_params, @user)
   end
+
+  def edit
+  	@transfer = current_user.account.transfer.where(:id =>params[:id])
+  	@transfer = @transfer.amount
+  end
+
+
 private
  def transfer_params
     params.require(:transfer).permit(:amount, :message)

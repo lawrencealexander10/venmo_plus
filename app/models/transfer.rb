@@ -2,8 +2,6 @@ class Transfer < ActiveRecord::Base
 	belongs_to :account
 	has_many :transactions
 
-
-
 	# has_one :user, through: :account
 	#does anything go here in respect to user 
 	def self.create_transfer(transfer_params, user)
@@ -101,6 +99,7 @@ class Transfer < ActiveRecord::Base
 			
 		end
 		if transfer.save
+
 			transfer.update_attributes(account_id: user.account.id)
 		#creating a transaction for every lender borrow and deducting from their account
 			sorted_funds.each do |key, value|

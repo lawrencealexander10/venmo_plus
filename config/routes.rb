@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  root 'users#dashboard'     
+  root 'users#dashboard'  
+  put '/transfers/update' => 'transfers#update'
+  get '/transfers/edit' => 'transfers#edit'   
   get '/static/index' => 'static#index'
   get '/transfers/new' => 'transfers#new'
   post '/transfers/create' => 'transfers#create'
