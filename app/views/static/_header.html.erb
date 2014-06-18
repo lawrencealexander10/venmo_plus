@@ -2,7 +2,42 @@
 <!-- Header -->
 <!-- <nav class="navbar navbar-default" role="navigation">  -->
 	<div class="static_header">
-	  	<div class="container-fluid">
+<!-- 	  	<div class="container-fluid">
+ -->	  	  <div class="row">
+	  		<div class="LoginHeader">
+		  			<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+					<table>
+				  <tbody>
+				    <tr>
+				      <td>
+				        <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+				      </td>
+				      <td>
+				        <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
+				      </td>
+				      <td>
+				        <%= f.submit "Sign in" %>
+				      </td>
+				    </tr>
+				    <tr>
+				      <td>
+				        <% if devise_mapping.rememberable? -%>
+				            <div>
+				              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+				            </div>
+				        <% end -%>      
+				      </td>
+				      <td>
+				        <%- if devise_mapping.recoverable? && controller_name != 'passwords' &&   controller_name != 'registrations' %>
+				              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+				          <% end -%>
+				      </td>
+				    </tr>
+				  </tbody>
+				  </table>
+				  	<% end -%>
+			</div>
+		  </div>
 	  		<div class="row">
 		  		<div class="company_logo">
 		  			<img src="/assets/tea-leaf-vector-hncruqdk.png" alt="Logo">
@@ -27,7 +62,7 @@
 	      			</div>
     			</div>
     		</div>
-	  	</div>
-  	</div>
+<!-- 	  	</div>
+ -->  	</div>
 
 <!-- </nav> -->
