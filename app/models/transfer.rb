@@ -150,12 +150,12 @@ validates :amount, presence: true
 		end
 
 
-		current_transactions= current_transfer.transactions
+		current_transactions = current_transfer.transactions
 		funds = current_transactions.pluck(:lender_id, :lend_amount).to_h
 
-		sorted_funds = funds.sort_by{|u,l| l}
-		sorted_funds = sorted_funds.to_h
-		n=1
+		sorted_funds = funds.sort_by{|u,l| l}.to_h
+		
+		n = 1
 		payment_check = sorted_funds.first(n).map(&:second)
 
 		local_total = 0
@@ -163,7 +163,7 @@ validates :amount, presence: true
 		while local_total < total_payment_amount
 			# if lending funds from bottom n friends is less then amount then
 			# add 1 user onto number of lenders
-			n +=1
+		    n +=1
 			borrow_check = sorted_funds.first(n).map(&:second)
 			# sum up the amount of lending funds with new lender(s)
 			local_total = payment_check.inject(:+)
@@ -194,6 +194,8 @@ validates :amount, presence: true
 				transfer = current_transfer.update_attributes(amount: new_amount)
 			end	
 				user.account.remaining_borrow += total_payment_amount
+				user.account.save
+	
 			return [transfer, "You have just made payment for $#{total_payment_amount}"]
 	end
 
