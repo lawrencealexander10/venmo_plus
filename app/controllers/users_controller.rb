@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :auth_user, except: [:new]
 
 	def new 
 	end
@@ -19,9 +20,8 @@ class UsersController < ApplicationController
 	end
 
 	def dashboard
-		unless current_user
-			redirect_to "/static/index"	
-		end
+		@account = current_user.account
 		@user = current_user
 	end
 end
+

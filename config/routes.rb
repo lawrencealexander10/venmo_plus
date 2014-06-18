@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get '/static/index' => 'static#index'
   get '/transfers/new' => 'transfers#new'
   post '/transfers/create' => 'transfers#create'
-  get '/accounts/update' => 'accounts#update'
-   resources :accounts, only: [:edit, :update]
+  # get '/accounts/update' => 'accounts#update'
+  # put '/accounts/:' => 'accounts#update'
+  resources :accounts, only: [:edit, :update]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
