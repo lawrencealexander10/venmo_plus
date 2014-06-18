@@ -1,4 +1,3 @@
-
 <!-- Start of Profile dashboard div -->
 <div class="container container_border">
   <div class="col-md-8">
@@ -69,8 +68,8 @@
 
 <!-- Borrowing Div -->
 <div class="container container_border">
-    <h2>You are borrowing:</h2>
-      <% if @transfers %>
+            <h2>You are borrowing:</h2>
+             <% if @transfers %>
         <% @transfers.each do |transfer| %>
           <li>
           <%= transfer.message.upcase %>
@@ -80,9 +79,9 @@
           </li>
         <% end %>
       <% end %>
-        <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%>
-        <h3 class="make_payment_text">Your next payment is due:</h3>
-</div>
+              <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%>
+           <h3 class="make_payment_text">Your next payment is due:</h3>
+         </div>
 
 
 
