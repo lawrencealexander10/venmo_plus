@@ -4,6 +4,37 @@
 	color: #091b76;
 }*/
 
+/*div {
+	border: solid;
+	border-width: 2px;
+}
+*/
+.container_border {
+	border: solid;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	background-color: rgba(0,0,1,0.1)
+}
+
+
+.credit_score {
+	padding: 25px 0 30px;
+	float: right;
+	border: solid;
+	border-radius: 6px;
+	margin-top: 5px;
+	background-color: #b6e9ff;
+
+	h3 {
+		text-align: center;
+	}
+
+	h2 {
+		text-align: center;
+		color: #34c93d;
+	}
+}
+
 .dash_brand {
 	color: #186cc8;
 	font-weight: bold;
@@ -20,10 +51,6 @@
 
 .items_borrowed {
 	font-size: 25px;
-}
-
-.btn_btn-default_btn-lg_dropdown-toggle {
-	margin-top: 15px;
 }
 
 .img-thumbnail {
@@ -44,17 +71,8 @@
 
 }
 
-.money {
-	margin-top: 25px;
-}
-
 .down {
 	margin-top: 20px;
-
-}
-
-.col-md-2 {
-	margin-left: -10px;
 
 }
 
@@ -66,12 +84,6 @@
 
 .side_lend {
 	margin-top: 20px;
-}
-
-.btn-primary{
-	margin-left: 10px;
-	font-size: 20px;
-
 }
 
 .pay {
@@ -98,11 +110,11 @@ margin-top: -5px;
 }
 
 .my_account {
-	text-align: center;
+	text-align: left;
 
 }
 
-.account_button {
-	margin-bottom: 20px;
+/*.account_button {
+	padding: 20px 0;
 
-}
+}*/

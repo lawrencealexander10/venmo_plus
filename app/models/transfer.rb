@@ -4,8 +4,6 @@ class Transfer < ActiveRecord::Base
 validates :message, presence: true
 validates :amount, presence: true
 
-
-
 	# has_one :user, through: :account
 	#does anything go here in respect to user 
 	def self.create_transfer(transfer_params, user)
@@ -105,8 +103,13 @@ validates :amount, presence: true
 			
 		end
 		if transfer.save
+
 			expiration_date= transfer.created_at+30.days
 			transfer.update_attributes(account_id: user.account.id, :completed => false, :expiration_date => expiration_date)
+
+
+			transfer.update_attributes(account_id: user.account.id)
+
 		#creating a transaction for every lender borrow and deducting from their account
 			sorted_funds.each do |key, value|
 				transaction= Transaction.create!(:transfer_id => transfer.id, :lender_id => key,  :lend_amount => value)

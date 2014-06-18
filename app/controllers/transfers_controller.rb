@@ -33,6 +33,13 @@ class TransfersController < ApplicationController
       render "transfers/new"
     end
   end
+
+  def edit
+  	@transfer = current_user.account.transfer.where(:id =>params[:id])
+  	@transfer = @transfer.amount
+  end
+
+
 private
  def transfer_params
     params.require(:transfer).permit(:amount, :message)

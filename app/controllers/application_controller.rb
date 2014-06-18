@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
  	devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fname, :lname, :email, :profile_pic, :password, :password_confirmation) }
 end
+	def auth_user
+		redirect_to "/static/index" unless user_signed_in?
+	end
 
  
 end
