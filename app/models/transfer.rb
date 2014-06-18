@@ -188,8 +188,12 @@ validates :amount, presence: true
 
 
 			new_amount= current_transfer.amount- total_payment_amount
-			transfer = current_transfer.update_attributes(amount: new_amount)
-			user.account.remaining_borrow += total_payment_amount
+			if new_amount == 0
+				transfer = current_transfer.update_attributes(amount: new_amount, completed: true)
+			else
+				transfer = current_transfer.update_attributes(amount: new_amount)
+			end	
+				user.account.remaining_borrow += total_payment_amount
 			return [transfer, "You have just made payment for $#{total_payment_amount}"]
 	end
 

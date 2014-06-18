@@ -1,4 +1,7 @@
-
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: #c9d5f0;
+ }
 
 /*.btn-info {
 	background-color: rgb(90,176,0);
