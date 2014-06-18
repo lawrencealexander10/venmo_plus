@@ -22,7 +22,6 @@ class TransfersController < ApplicationController
 
   def update
     @user= current_user
-    update_transfer= current_user.account.transfer.where(:id =>params[:id])
     result = Transfer.update_transfer(update_params, @user)
      if result[0]
       flash[:success] = result[1]
@@ -35,8 +34,7 @@ class TransfersController < ApplicationController
   end
 
   def edit
-  	@transfer = current_user.account.transfer.where(:id =>params[:id])
-  	@transfer = @transfer.amount
+  	@transfer = current_user.account.transfers.find(params[:id])
   end
 
 
@@ -46,8 +44,10 @@ private
   end
 
 def update_params
-	params.require(:transfer).permit(:amount)
+	params.require(:transfer).permit(:amount, :id)
 end
+
+
 
 
 end
