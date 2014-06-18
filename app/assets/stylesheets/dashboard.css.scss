@@ -49,6 +49,12 @@
 	margin-right: 10px;
 }
 
+.modal-body {
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+
 .items_borrowed {
 	font-size: 25px;
 }

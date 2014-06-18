@@ -36,11 +36,14 @@ validates :amount, presence: true
 
 		funds = Account.where("user_id != ?", user.id).pluck(:user_id, :lending_funds)
 		funds = funds.to_h
-		sorted_funds = funds.sort_by{|u,l| l}.reverse
+
+		
 		
 		if total_borrow_amount < 200
 		#look at top 5 users
-		sorted_funds = sorted_funds.first(n).to_h
+		sorted_funds = funds.sort_by{|u,l| l}.reverse
+
+		
 		borrow_check = sorted_funds.first(n).map(&:second)
 		# find the total amount of lending funds from top 5 lenders
 		local_total = borrow_check.inject(:+)
@@ -72,14 +75,16 @@ validates :amount, presence: true
 					left_over = 0
 				end
 			end
+			sorted_funds2 = sorted_funds.first(n).to_h
 			# subtract the amount each lender is giving from their lending funds
 			individual_loan_amount.each_index do |i|
-				sorted_funds[sorted_funds.keys[i]] = individual_loan_amount[i]
+				sorted_funds2[sorted_funds2.keys[i]] = individual_loan_amount[i]
 			end
 		else 
 			# if amount > 200
 			# sort accounts 
 			# take lending funds as array
+		sorted_funds = funds.sort_by{|u,l| l}
 		n=1
 		sorted_funds = sorted_funds.to_h
 		borrow_check = sorted_funds.first(n).map(&:second)
@@ -97,9 +102,9 @@ validates :amount, presence: true
 			# subtract total lending funds from total amount
 			# give that extra money back to the last user 
 			borrow_check[-1] = (local_total - total_borrow_amount)
-
+			sorted_funds2 = sorted_funds.first(n).to_h
 			borrow_check.each_index do |i|
-				sorted_funds[sorted_funds.keys[i]] = borrow_check[i]
+				sorted_funds2[sorted_funds2.keys[i]] = borrow_check[i]
 			
 			end
 			
@@ -113,7 +118,7 @@ validates :amount, presence: true
 			transfer.update_attributes(account_id: user.account.id)
 
 		#creating a transaction for every lender borrow and deducting from their account
-			sorted_funds.each do |key, value|
+			sorted_funds2.each do |key, value|
 				transaction= Transaction.create!(:transfer_id => transfer.id, :lender_id => key,  :lend_amount => value)
 				transaction.borrow
 
@@ -126,64 +131,66 @@ validates :amount, presence: true
 			my_new_remaining_borrow= user.account.remaining_borrow - transfer.amount
 			user.account.update_attributes(:remaining_borrow => my_new_remaining_borrow)
 
-			return [transfer, "You just borrowed $#{transfer.amount}"]
+			return [transfer, "You just borrowed $#{total_borrow_amount}"]
+		else
+			return [false, "Please enter a message"]
 		end
 	end
 
-	# def self.update_transfer(update_params, user)
-		
-	# end	 
-	# def self.update_transfer(update_params, user)
-	# 	#use current transfer 
-	# 	total_payment_amount= update_params[:amount].to_f
-	# 	current_transfer= 
+	#make payment
+	def self.update_transfer(update_params, user)
+		#use current transfer 
+		total_payment_amount= update_params[:amount].to_f
+		current_transfer= user.account.transfers.find(update_params[:id])
 
-	# 	if total_payment_amount<0
-	# 		return [false, "Not a valid amount"]
-	# 	elsif total_payment_amount>current_transaction.amount
-	# 		return [false, "Payment is too much"]
-	# 	end
+		if total_payment_amount<0
+			return [false, "Not a valid amount"]
+		elsif total_payment_amount>current_transfer.amount
+			return [false, "Payment is too much"]
+		end
 
 
-	# 	current_lenders= current_transfer.transaction.all
-	# 	current_lenders.pluck(:lender_id, :lend_amount).to_h
+		current_transactions= current_transfer.transactions
+		funds = current_transactions.pluck(:lender_id, :lend_amount).to_h
 
-	# 	sorted_funds = funds.sort_by{|u,l| l}.reverse
-	# 	sorted_funds = sorted_funds.to_h
-	# 	n=1
-	# 	payment_check = sorted_funds.first(n).map(&:second)
+		sorted_funds = funds.sort_by{|u,l| l}
+		sorted_funds = sorted_funds.to_h
+		n=1
+		payment_check = sorted_funds.first(n).map(&:second)
 
-	# 	local_total = 0
-	# 	local_total = payment_check.inject(:+)
-	# 	while local_total < total_payment_amount
-	# 		# if lending funds from bottom n friends is less then amount then
-	# 		# add 1 user onto number of lenders
-	# 		n +=1
-	# 		borrow_check = sorted_funds.first(n).map(&:second)
-	# 		# sum up the amount of lending funds with new lender(s)
-	# 		local_total = borrow_check.inject(:+)
-	# 	end
-	# 		# if total lending funds > total amount
-	# 		# subtract total lending funds from total amount
-	# 		# give that extra money back to the last user 
-	# 		borrow_check[-1] = (local_total - total_payment_amount)
+		local_total = 0
+		local_total = payment_check.inject(:+)
+		while local_total < total_payment_amount
+			# if lending funds from bottom n friends is less then amount then
+			# add 1 user onto number of lenders
+			n +=1
+			borrow_check = sorted_funds.first(n).map(&:second)
+			# sum up the amount of lending funds with new lender(s)
+			local_total = payment_check.inject(:+)
+		end
+			# if total lending funds > total amount
+			# subtract total lending funds from total amount
+			# give that extra money back to the last user 
+			payment_check[-1] = (local_total - total_payment_amount)
 
-	# 		borrow_check.each_index do |i|
-	# 			sorted_funds[sorted_funds.keys[i]] = borrow_check[i]
+			sorted_funds2 = sorted_funds.first(n).to_h
+			payment_check.each_index do |i|
+				sorted_funds2[sorted_funds2.keys[i]] = payment_check[i]
 			
-	# 		end
-	# 		sorted_funds.each do |key, value|
-	# 			transaction= current_transfer.transaction.where(id: key)
-	# 			new_transaction_amount = transaction.amount- value
-	# 			transaction.update_attributes(amount: new_transaction_amount)
-	# 			transaction.payment(value)
+			end
+			sorted_funds2.each do |key, value|
+				transaction= current_transfer.transactions.find_by(lender_id: key)
+				new_transaction_amount = transaction.lend_amount- value
+				transaction.update_attributes(lend_amount: new_transaction_amount)
+				transaction.payment(value)
 
-	# 		end
+			end
 
 
-	# 		new_amount= current_transfer.amount- total_payment_amount
-	# 		current_transfer.update_attributes(amount: new_amount)
-	# 		user.account.remaining_borrow += total_payment_amount
-	# end
+			new_amount= current_transfer.amount- total_payment_amount
+			transfer = current_transfer.update_attributes(amount: new_amount)
+			user.account.remaining_borrow += total_payment_amount
+			return [transfer, "You have just made payment for $#{total_payment_amount}"]
+	end
 
 end

@@ -2,15 +2,13 @@ Rails.application.routes.draw do
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  root 'users#dashboard'  
-  put '/transfers/update' => 'transfers#update'
-  get '/transfers/edit' => 'transfers#edit'   
+  root 'users#dashboard'    
   get '/static/index' => 'static#index'
-  get '/transfers/new' => 'transfers#new'
   post '/transfers/create' => 'transfers#create'
   # get '/accounts/update' => 'accounts#update'
   # put '/accounts/:' => 'accounts#update'
   resources :accounts, only: [:edit, :update]
+  resources :transfers, only: [:edit, :update, :new]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
