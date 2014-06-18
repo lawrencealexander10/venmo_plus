@@ -24,11 +24,28 @@ $(function() {
 	        var target = $(this.hash);
 	        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 	           if (target.length) {
-	             $('html,body').animate({
+	             $('.modal-body').animate({
 	                 scrollTop: target.offset().top
 	            }, 750);
 	            return false;
 	        }
 	    }
 	});
+
+
+	$('#lending_form').hide();
+
+	$('.toggle_forms_button').click(function() {
+	    $('#collateral_form').fadeOut(function() {
+	    	$('#lending_form').fadeIn();
+	    });
+	    
+	});
+
 });
+
+
+
+
+
+

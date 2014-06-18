@@ -9,34 +9,46 @@
 
 
 <!-- Set Collateral/Lending Funds Modal -->
-<% if @account.collateral.nil? %>
+<% if @account.collateral.nil?  %>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">Account Setup (Step 1 of 2)</h4>
+	        <h4 class="modal-title" id="myModalLabel">Account Setup</h4>
 	      </div>
-	      <div class="modal-body">
-	      	<h4>Set Collateral:</h4>
-	      	<%= "Your balance is: #{current_user.account.balance}" %>
 
-			<%= form_for(@account, method: 'put') do |f| %>
+	     <%= form_for(@account, method: 'put') do |f| %>
+	      <div class="modal-body">
+
+	      	<!-- Set Collateral Form -->
+
+	      	<div id="collateral_form">
+	      		<h4>Set Desired Collateral:</h4>
+	      		<%= "Your balance is: #{current_user.account.balance}" %>
+
 				<div class="form-group">
-					<%= f.label :collateral %>
-					<%= f.number_field :collateral %>
+					<%= f.number_field :collateral, placeholder: "Collateral" %>
 				</div>
-				<div class="form-group">
-					<%= f.label :lending %>
-					<%= f.number_field :lending_funds %>
+				<a href="#lending_form" class="toggle_forms_button"><%= button_to "Next"%></a>
+			</div>
+
+			<!-- Set Lending Form -->
+<!-- 		  <div class="modal-footer">
+ -->
+				<div id="lending_form">
+					<h4>Set Desired Lending Amount:</h4>
+		      		<%= "Your balance is: #{current_user.account.balance}" %>
+
+					<div class="form-group">
+						<%= f.number_field :lending_funds, placeholder: "Lending Funds" %>
+					</div>
+					<div class="form-group">
+						<%= f.submit "Submit", :class => "btn" %>
+					</div>
 				</div>
-	  	  </div>
-	      <div class="modal-footer">
-				<div class="form-group">
-					<%= f.submit "Next", :class => "btn" %>
-				</div>
-			<% end %>
 		  </div>
+  	     <% end %>
 	    </div>
 	  </div>
 	</div>
