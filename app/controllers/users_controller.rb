@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 	def dashboard
 		@account = current_user.account
 		@user = current_user
+		@transfers= current_user.account.transfer
 	end
 end
 
