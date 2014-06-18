@@ -7,7 +7,10 @@ end
   def update
   	@account = current_user.account
 
-	@account.update_attributes(account_params)
+	   @account.update_attributes(account_params)
+     collateral =  @account.collateral
+     borrow_limit = (collateral*.9)
+     @account.update_attributes(remaining_borrow: borrow_limit)
   	redirect_to root_path
   end
 
