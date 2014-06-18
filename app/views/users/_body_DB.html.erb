@@ -49,11 +49,13 @@
         <div class="row">
         <div class="container">
             <h2>You are borrowing:</h2>
-            <li>
-              <% for transfer in @transfers %>
+            <% if @transfer %>
+              <% @transfers.each do |transfer| %>
+                 <li>
               <%= transfer.message.upcase && transfer.amount %>
               <%= link_to "Make Payment!", transfer_edit_path(:id => transfer), :method => :get %>
             </li>
+              <% end %>
               <% end %>
               <%=link_to 'Borrow!', '/transfers/new', :class => "btn btn-primary btn-lg active", :method => :get%>
            <h3 class="make_payment_text">Your next payment is due:</h3>
