@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/*/
 
+/* Make venmo buttons bigger*/
+/* Add fixed header */
+/* Link Sign_In to sign in page with Uber layout*/
+/* Get rid of gird-pattern on static/index page? Unnecessary and fucks with opacity*/
+
+
+
 
 body {
 	background-position: center;
@@ -16,13 +23,25 @@ body {
 
 
 #howto {
-	background:rgba(0,0,0,0.5);
-	color: white;
-	text-align: center;
+/*	background:rgba(0,0,0,0.5);
+*/	/*color: white;
+	text-align: center;*/
 	width: 100%;
 	height: 100%;
-	padding-top: 100px;
+	padding-top: 105px;
+	padding-bottom: 105px;
+	border: solid;
+
+	.container {
+		background:rgba(0,0,0,0.5);
+		color: white;
+		text-align: center;
+		width: 100%;
+		padding: 100px 20px;
+	}
 }
+
+
 
 .howto p{
 	text-align: left;
@@ -36,8 +55,9 @@ body {
 }
 
 .howto_button {
-	margin-left: 39%;
+	text-align: center;
 	margin-top: 170px;
+	margin-bottom: 13px;
 }
 
 .howto_button a{
@@ -56,10 +76,34 @@ body {
 	background:rgba(0,0,0,0.8);
 	width: 100%;
 	height: 100%;
-}
+/**/}
 
 .venmo_sign_up_button {
-	margin-right: 45%;
+	margin: 0 43%;
+}
+
+.venmo_button_size {
+	width: 250px;
+	height: 60px;
+	background-color: rgb(90,176,0);
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 25px;
+	line-height: 1.428571429;
+	border-radius: 4px;
+
+}
+
+.venmo_button_size:hover {
+		background-color: black;
 }
 
 
@@ -71,6 +115,34 @@ body {
 
 .company_summary span{
 	color: rgb(90,176,0);
+
+}
+
+#about {
+	width: 100%;
+	height: 100%;
+	padding-top: 80px;
+/*	padding-bottom: 130px;
+*/	border: solid;
+	vertical-align: 50%;
+
+	.container {
+		text-align: center;
+		width: 100%;
+/*		padding: 100px 0;
+*/	}
+
+}
+
+.about_explanation {
+	text-align: center;
+	margin: 30px 150px;
+	padding-top: 80px;
+	padding-bottom: 20px;
+
+	span{
+	color: rgb(90,176,0);
+	}
 }
 
 .company_summary h1{
