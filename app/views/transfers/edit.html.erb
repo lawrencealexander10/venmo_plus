@@ -1,6 +1,6 @@
 <h1>Make Payment</h1>
 
-<p>you currently owe $<%= @transfer.amount %></P>
+<p>you currently owe $<%= @transfer.amount.round(2) %></P>
 
 <%= form_for(@transfer, url: '/transfers/update', method: 'put') do |f| %>
 <div class = "container"

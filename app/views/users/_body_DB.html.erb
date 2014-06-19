@@ -88,7 +88,11 @@
     <div class="container container_border">
       <h2 class = "track">Track your payments:</h2>
        <div class="progress">
-        <% percent = (((current_user.account.remaining_borrow)/@collateral)*100).round(2) %>
+         <% if current_user.account.collateral %>
+        <% percent = (((current_user.account.remaining_borrow)/@collateral)*100).round(0) %>
+        <% else %> 
+        <% percent = 100 %>
+        <% end %>
           <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%;">
         <%= percent %>%
           </div>
