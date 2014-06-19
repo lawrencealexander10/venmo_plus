@@ -2,8 +2,8 @@
 <!-- Header -->
 <!-- <nav class="navbar navbar-default" role="navigation">  -->
 	<div class="static_header">
-<!-- 	  	<div class="container-fluid">
- -->	  	  <div class="row">
+	  	<div class="container-fluid">
+	  	  <div class="row">
 	  		<div class="LoginHeader">
 		  			<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
 					<table>
@@ -53,16 +53,16 @@
 			  	</div>
 			  	<div class="row">
 	      			<div class="venmo_sign_up_button">
-	          			<%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"btn btn-info" %>
+	          			<%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"venmo_button_size" %>
 	      			</div>
     			</div>
     			<div class="row">
     				<div class="howto_button">
-	      				<a href="#howto">See how it works <span class="glyphicon glyphicon-chevron-down"></span></a>
+	      				<a href="#about">Learn More <span class="glyphicon glyphicon-chevron-down"></span></a>
 	      			</div>
     			</div>
     		</div>
-<!-- 	  	</div>
- -->  	</div>
+	  	</div>
+  	</div>
 
 <!-- </nav> -->
