@@ -6,10 +6,42 @@
 
 /*div {
 	border: solid;
-	border-width: 2px;
-}
-*/
+	border-width: 1px;
+}*/
 
+body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.profile {
+	border: solid;
+	border-radius: 6px;
+	padding: 5px;
+	background-color: white;
+}
+
+.col-md-4.slight_margin {
+	margin-left: 10px;
+	margin-right: -10px;
+}
+
+.row .custom_rows {
+	padding: 0px;
+}
+
+.selfie {
+	background-image: url(/assets/selfie.jpg);
+	background-size: cover;
+	background-color: #CCCDEB;
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	margin: 5px auto;
+	background-position-y: -15px;
+
+}
 
 .container_border {
 	border: solid;
@@ -18,22 +50,27 @@
 	background-color: rgba(0,0,1,0.1)
 }
 
+/*.dashboard_body {
+	background-color: rgba(0,0,0,.5);
+}*/
+
 
 .credit_score {
-	padding: 25px 0 30px;
-	float: right;
 	border: solid;
 	border-radius: 6px;
-	margin-top: 5px;
-	background-color: #b6e9ff;
+	background-color: white;
+
 
 	h3 {
 		text-align: center;
+		padding: 0;
 	}
 
 	h2 {
 		text-align: center;
 		color: #34c93d;
+		margin: 0;
+		padding-bottom: 5px;
 	}
 }
 
@@ -45,10 +82,25 @@
 	display: inline;	
 }
 
+.track_progress_div {
+	border: solid;
+	padding-left: 5px;
+	border-radius: 6px;
+	background-color: white;
+}
+
 .nav-thumbnail {
 	height: 40px;
 	margin-top: 5px;
 	margin-right: 10px;
+	background-image: url(/assets/selfie.jpg);
+	background-size: cover;
+	background-color: #CCCDEB;
+	border-radius: 50%;
+/*	height: 100px;
+*//*	width: 100px;
+*//*	margin: 5px auto;
+*/	background-position-y: -15px;
 }
 
 .modal-body {
@@ -79,6 +131,24 @@
 
 }
 
+
+.btn.borrow_button {
+	margin-top: 20px;
+	/*margin-left: 40px;*/
+	width: 300px;
+	height: 100px;
+	font-size: 35px;
+	border-radius: 6px;
+
+}
+
+.borrowing_table {
+	border: solid;
+	border-radius: 6px;
+	margin-top: 20px;
+	background-color: white;
+}
+
 .down {
 	margin-top: 20px;
 
@@ -101,6 +171,7 @@
 
 .track {
 	margin-bottom: 20px;
+	line-height: 40%;
 }
 
 .make_payment_text {
@@ -118,7 +189,8 @@ margin-top: -5px;
 }
 
 .my_account {
-	text-align: left;
+	text-align: center;
+	line-height: 40%;
 
 }
 
