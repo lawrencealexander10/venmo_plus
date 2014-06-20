@@ -7,18 +7,13 @@
 
 
 
-body {
-	background:#f1f2f2 url(/assets/pattern-grid@1x.jpg) repeat left top;
-	background-size:18px 18px;
-/*background-color: rgba(0,0,0,0.9)
-*/}
-
 .success {
   padding: 10px;
   margin: 10px 0;
   color: green;
   border: 1pt solid green;
   background-color: #f2fdeb;
+  text-align: center;
 }
 
 .error {
@@ -27,4 +22,5 @@ body {
   color: red;
   border: 1pt solid red;
   background-color: #fdece6;
+  text-align: center;
 }

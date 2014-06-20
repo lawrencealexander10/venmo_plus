@@ -12,9 +12,12 @@
       <div class="row custom_rows">
         <div class="selfie"></div>
       </div>
-      <div class="row custom_rows">
+      <div class="row custom_rows" >
         <div class = "col-md-12">
           <h2  class = "my_account"><%= @user.fname + " " + @user.lname %></h2>
+        </div>
+        <div class="row custom_rows">
+        <div class="horiz_line"></div>
         </div>
       </div>
       <!-- Remaining Borrow Row -->
@@ -28,6 +31,9 @@
           <p> $<%= current_user.account.remaining_borrow.round(2)%> </p>
         </div>
       </div>
+      <div class="row custom_rows">
+        <div class="separation_line"></div>
+      </div>
       <!-- Collateral Row -->
       <div class="row custom_rows">
         <div class="col-md-5">
@@ -40,7 +46,9 @@
         </div>
         <div class="col-md-2">
           <!-- Large modal -->
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".collateral">Edit</button>
+
+          <a href="#myModal" data-toggle="modal" data-target=".collateral">Edit</a>
+          <!-- <button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".collateral">Edit</button> -->
           <div class="modal fade collateral" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
@@ -64,7 +72,11 @@
           </div>
         </div>
       </div>
-      <!-- Lending Funds Row -->
+      <div class="row custom_rows">
+        <div class="separation_line"></div>
+      </div>  
+
+          <!-- Lending Funds Row -->
       <div class="row custom_rows">
         <div class="col-md-5">
           <h4>Current lending funds:</h4>
@@ -76,7 +88,9 @@
         </div>
         <div class="col-md-2">
           <!-- Loan modal -->
-          <button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".loan">Edit</button>
+<!--           <button class="btn btn-primary btn-sm" data-toggle="modal" data-target=".loan">Edit</button> -->
+          <a href="#myModal" data-toggle="modal" data-target=".collateral">Edit</a>
+
           <div class="modal fade loan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
@@ -128,7 +142,7 @@
       <% else %>
       <% percent = 100 %>
       <% end %>
-      <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%;">
+      <div class="progress-bar custom_progress" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%;">
         <%= percent %>%
       </div>
     </div>

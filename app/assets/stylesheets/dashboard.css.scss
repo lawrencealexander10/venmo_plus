@@ -9,17 +9,34 @@
 	border-width: 1px;
 }*/
 
-body {
+/*body {
     width: 100%;
     height: 100%;
     background-color: black;
-}
+}*/
+
+
+/*13B68D (logo color)
+284450 (complementing blue)
+ACBABF (complementing grey )*/
+
+/*.navbar_styling {
+	background-color: #ACBABF;
+}*/
 
 .profile {
 	border: solid;
 	border-radius: 6px;
 	padding: 5px;
-	background-color: white;
+	background-color: #ACBABF;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+	background-color: #13B68D !important;
+}
+
+.custom_progress{
+	background-color: #13B68D !important;
 }
 
 .col-md-4.slight_margin {
@@ -29,13 +46,32 @@ body {
 
 .row .custom_rows {
 	padding: 0px;
+	margin-left: 0px;
 }
+
+.separation_line { 
+/*	margin-left: 40px;
+*/	width: 100%;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+}
+
+.horiz_line {
+	margin-left: 75px;
+	width: 60%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 0;
+	border-top: 3px solid #13B68D;
+}
+
 
 .selfie {
 	background-image: url(/assets/selfie.jpg);
 	background-size: cover;
 	background-color: #CCCDEB;
 	border-radius: 50%;
+	border: solid;
 	height: 100px;
 	width: 100px;
 	margin: 5px auto;
@@ -53,12 +89,14 @@ body {
 /*.dashboard_body {
 	background-color: rgba(0,0,0,.5);
 }*/
-
+.header_row {
+	padding-bottom: 0 !important;
+}
 
 .credit_score {
 	border: solid;
 	border-radius: 6px;
-	background-color: white;
+	background-color: #ACBABF;
 
 
 	h3 {
@@ -68,25 +106,29 @@ body {
 
 	h2 {
 		text-align: center;
-		color: #34c93d;
+		color: #0eff1a;
 		margin: 0;
 		padding-bottom: 5px;
 	}
 }
 
+.navbar-default {
+	border-color: black !important;
+}
+
 .dash_brand {
-	color: #186cc8;
+	color: #13B68D;
 	font-weight: bold;
 	text-align: left;
 	font-size: 200%;
-	display: inline;	
+	display: inline;
 }
 
 .track_progress_div {
 	border: solid;
 	padding-left: 5px;
 	border-radius: 6px;
-	background-color: white;
+	background-color: #ACBABF;
 }
 
 .nav-thumbnail {
@@ -97,10 +139,9 @@ body {
 	background-size: cover;
 	background-color: #CCCDEB;
 	border-radius: 50%;
-/*	height: 100px;
-*//*	width: 100px;
-*//*	margin: 5px auto;
-*/	background-position-y: -15px;
+	border: solid;
+	border-width: 1px;
+	background-position-y: -15px;
 }
 
 .modal-body {
@@ -139,6 +180,8 @@ body {
 	height: 100px;
 	font-size: 35px;
 	border-radius: 6px;
+	border-color: black;
+	background-color: #13B68D;
 
 }
 
@@ -146,7 +189,7 @@ body {
 	border: solid;
 	border-radius: 6px;
 	margin-top: 20px;
-	background-color: white;
+	background-color: #ACBABF;
 }
 
 .down {
@@ -191,7 +234,12 @@ margin-top: -5px;
 .my_account {
 	text-align: center;
 	line-height: 40%;
+	padding-bottom: 5px;
 
+}
+
+.container-fluid {
+	background-color: #ACBABF;
 }
 
 /*.account_button {
