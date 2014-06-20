@@ -28,6 +28,18 @@
     	padding-left: 30px;
     	color: #13B68D;
 
+  		span a{
+  			color: #13b68d;
+
+
+  		}
+
+  		span a:hover{
+  			color: #284450;
+  			text-decoration: none;
+  			
+  		}
+
 		.bnice{
 			vertical-align: middle;
 			float: right;
@@ -111,6 +123,7 @@ font-size: 15px;
 }
 
 .static_header {
+	
 	/*background-attachment: fixed;
 	background: url("/assets/IS09A8I2K.jpg") no-repeat;
 background-size: 100%;*/
