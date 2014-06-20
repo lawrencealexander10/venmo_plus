@@ -15,9 +15,42 @@ body {
 }
 
 .LoginHeader {
-	margin-top: 10px;
-	margin-right: 10px;
-	float: right;
+	margin-top: 0px;
+	box-shadow: 0px 0px 5px #888888;
+	position: fixed;
+	background-color: white;
+	width: 100%;
+	height: 45px;
+
+	h1{
+		font-family: 'Roboto Slab', serif;
+		font-size: 23px;
+		line-height: 10px;
+    	padding: 0px 0;
+    	padding-left: 30px;
+    	color: #13b68d;
+
+		.bnice{
+			vertical-align: middle;
+			float: right;
+			margin-top: -15px;
+			padding-top: 0px;
+			top: 30px;
+			margin-right: 30px;
+			font-size: 23px;
+			
+
+				span a{
+					font-size: 23px;
+			color: #13b68d;
+			line-height: 10px;
+			margin-top: 0px;
+				}
+
+		}
+		
+
+	}
 
 }
 
@@ -39,19 +72,29 @@ body {
 		width: 100%;
 		padding: 100px 20px;
 	}
+
+	
 }
 
 
+.col-md-4{
+
+font-family: 'Roboto Slab', serif;
+font-size: 15px;
+
+}
 
 .howto p{
 	text-align: left;
 	padding-left: 5px;
 	padding-right: 5px;
+	
 }
 
 .howto_images {
 	width: 100px;
 	padding-top: 10px;
+	font-family: 'Roboto Slab', serif
 }
 
 .howto_button {
@@ -71,12 +114,22 @@ body {
 }
 
 .static_header {
-/*	background-attachment: fixed;
-*/	
-	background:rgba(0,0,0,0.8);
+	/*background-attachment: fixed;
+	background: url("/assets/IS09A8I2K.jpg") no-repeat;
+background-size: 100%;*/
+	
+	/*background:rgba(0,0,0,0.10);
 	width: 100%;
 	height: 100%;
 /**/}
+/*.background_opacity{
+	background-color: rgba(248, 247, 216, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}*/
 
 .venmo_sign_up_button {
 	margin: 0 43%;
@@ -85,7 +138,8 @@ body {
 .venmo_button_size {
 	width: 250px;
 	height: 60px;
-	background-color: rgb(90,176,0);
+	background-color: #13b68d;
+	/*rgb(90,176,0)*/
 	display: inline-block;
 	margin-bottom: 0;
 	font-weight: normal;
@@ -95,26 +149,31 @@ body {
 	background-image: none;
 	border: 1px solid transparent;
 	white-space: nowrap;
-	padding: 6px 12px;
+	padding: 1px 1px;
 	font-size: 25px;
 	line-height: 1.428571429;
 	border-radius: 4px;
+	margin-top: 30px;
+	font-family: 'Roboto Slab', serif;
+	color: white;
 
 }
 
 .venmo_button_size:hover {
-		background-color: black;
+		background-color: #3f94d0;
 }
 
 
 .company_logo img{
-	max-width: 100px;
-	margin: 100px 45% 0;
+	max-width: 200px;
+	margin: 50px 45% 0;
 }
 
 
 .company_summary span{
-	color: rgb(90,176,0);
+	color: #13b68d;  
+	text-align: center;
+	/*rgb(90,176,0)*/
 
 }
 
@@ -125,6 +184,7 @@ body {
 /*	padding-bottom: 130px;
 */	border: solid;
 	vertical-align: 50%;
+
 
 	.container {
 		text-align: center;
@@ -139,15 +199,30 @@ body {
 	margin: 30px 150px;
 	padding-top: 80px;
 	padding-bottom: 20px;
+	font-family: 'Roboto Slab', serif;
 
 	span{
-	color: rgb(90,176,0);
+	color: #13b68d ;
+	/*rgb(90,176,0)*/
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: 'Roboto Slab', serif;
 	}
+.row{
+	font-family: 'Roboto Slab', serif;
+}
+
 }
 
 .company_summary h1{
-	color: white;
-	margin: 30px 200px;
-	text-align: center;
+	color: #204056;
+	margin: 20px 0px;
+/*	text-align: center;*/
+	font-family: 'Roboto Slab', serif;
+
+
 	
+}
+.company_summary{
+	text-align: center;
 }
