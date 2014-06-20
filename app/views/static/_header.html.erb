@@ -1,68 +1,53 @@
 
 <!-- Header -->
 <!-- <nav class="navbar navbar-default" role="navigation">  -->
+<div id="home">	
 	<div class="static_header">
-	  	<div class="container-fluid">
-	  	  <div class="row">
-	  		<div class="LoginHeader">
-		  			<%= form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-					<table>
-				  <tbody>
-				    <tr>
-				      <td>
-				        <%= f.email_field :email, placeholder: "Email", autofocus: true %>
-				      </td>
-				      <td>
-				        <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
-				      </td>
-				      <td>
-				        <%= f.submit "Sign in" %>
-				      </td>
-				    </tr>
-				    <tr>
-				      <td>
-				        <% if devise_mapping.rememberable? -%>
-				            <div>
-				              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-				            </div>
-				        <% end -%>      
-				      </td>
-				      <td>
-				        <%- if devise_mapping.recoverable? && controller_name != 'passwords' &&   controller_name != 'registrations' %>
-				              <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-				          <% end -%>
-				      </td>
-				    </tr>
-				  </tbody>
-				  </table>
-				  	<% end -%>
-			</div>
-		  </div>
-	  		<div class="row">
-		  		<div class="company_logo">
-		  			<img src="/assets/tea-leaf-vector-hncruqdk.png" alt="Logo">
-		  		</div>
-		  	</div>
-		  	<div class="summary_wrap">
+		<div class= "background_opacity">
+		  	<div class="container-fluid">
+		  	  <div class="row">
+		  		<div class="LoginHeader">
+		  		<h1>
+			  		<span>Seed</span>
+			  		<div class="bnice">
+			  		<span>
+			  			<a href="#home">Home</a> |
+			  			<a href="#about">About</a> |
+			  			<a href="#howto">FAQ</a>                     | 
+			  		</span>
+			  		<%= link_to "Login", new_user_session_path, :class => "btn btn-primary", :method => :get%>
+			  			<!-- <button type="button" class=>       Login     </button> -->
+			  		</div>
+				</h1>
+				</div>
+			  </div>
 		  		<div class="row">
-				    <div class="company_summary">
-				    	<h1>
-	        				<span>Seed</span> anonymously borrow money from your friends while building a strong credit history
-	      				</h1>
-				    </div>
+			  		<div class="company_logo">
+			  			<img src="/assets/logo2Seed.png" alt="Logo">
+			  		</div>
 			  	</div>
-			  	<div class="row">
-	      			<div class="venmo_sign_up_button">
-	          			<%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"venmo_button_size" %>
-	      			</div>
-    			</div>
-    			<div class="row">
-    				<div class="howto_button">
-	      				<a href="#about">Learn More <span class="glyphicon glyphicon-chevron-down"></span></a>
-	      			</div>
-    			</div>
-    		</div>
-	  	</div>
+			  	<div class="summary_wrap">
+			  		<div class="row">
+					    <div class="company_summary">
+					    	<h1>
+		        				<span>Seed</span> Start investing in your friends and get rewarded
+		      				</h1>
+					    </div>
+				  	</div>
+				  	<div class="row">
+		      			<div class="venmo_sign_up_button">
+		          			<%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"venmo_button_size" %>
+		      			</div>
+	    			</div>
+	    			<div class="row">
+	    				<div class="howto_button">
+		      				<a href="#about">Learn More <span class="glyphicon glyphicon-chevron-down"></span></a>
+		      			</div>
+	    			</div>
+	    		</div>
+		  	</div>
+		</div>
   	</div>
+</div>
 
 <!-- </nav> -->
