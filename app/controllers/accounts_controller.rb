@@ -9,9 +9,12 @@ end
 
 	   @account.update_attributes(account_params)
      collateral =  @account.collateral
+     lending_funds = @account.lending_funds
      borrow_limit = (collateral*0.9)
      @account.update_attributes(remaining_borrow: borrow_limit)
   	redirect_to root_path
+
+
   end
 
 

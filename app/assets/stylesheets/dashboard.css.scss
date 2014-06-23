@@ -24,6 +24,10 @@ ACBABF (complementing grey )*/
 	background-color: #ACBABF;
 }*/
 
+.dashboard_divs {
+	background-color: white !important;
+}
+
 .profile {
 	border: solid;
 	border-radius: 6px;
@@ -97,8 +101,9 @@ ACBABF (complementing grey )*/
 	background-color: rgba(255, 255, 255, 0.8);
 	width: 100%;
 	height: 45px;
-/*	padding-bottom: 0 !important;
-*/}
+	margin-bottom: 20px;
+	margin-left: 0px !important;
+}
 
 .credit_score {
 	border: solid;

@@ -29,7 +29,6 @@ class UsersController < ApplicationController
 		if current_user.account.collateral
 		@collateral = current_user.account.collateral*0.9
 		@remaining = current_user.account.remaining_borrow
-
 		end
 	end
 end
