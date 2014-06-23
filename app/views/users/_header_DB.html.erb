@@ -1,30 +1,28 @@
-
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="row header_row">
+  <!--   <div class="container-fluid">
+    -->    <div class="row header_row">
       <div class="collapse navbar-collapse">
-        <div class ="dash_brand">Seed</div>
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <img src=<%=current_user.profile_pic%> class="nav-thumbnail">
-              </li>
-              <li class="dropdown">
-                  <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= @user.fname %> <b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">User Settings</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Account Settings</a></li>
-                    <li role="presentation"><%=link_to('Logout', destroy_user_session_path, :method => :delete)%></li>
-                  </ul>
-              </li>
+        <div class ="dash_brand">| Seed |
+          <img class="small_logo" src="/assets/logo2Seed.png" alt="Logo">
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <img src=<%=current_user.profile_pic%> class="nav-thumbnail">
+          </li>
+          <li class="dropdown">
+            <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><%= @user.fname %> <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">User Settings</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Account Settings</a></li>
+              <li role="presentation"><%=link_to('Logout', destroy_user_session_path, :method => :delete)%></li>
             </ul>
-          </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
-</nav>
-
-
-
+<!--   </div>
+--></nav>
 <script type="text/javascript">
-  $('.dropdown-toggle').dropdown();
+$('.dropdown-toggle').dropdown();
 </script>

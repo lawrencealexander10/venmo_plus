@@ -16,7 +16,7 @@
 	margin-top: 0px;
 	box-shadow: 0px 0px 5px #888888;
 	position: fixed;
-	background-color: white;
+	background-color: rgba(255,255,255,0.8);
 	width: 100%;
 	height: 45px;
 
@@ -58,6 +58,9 @@
 				}
 
 		}
+				.bnice a:hover {
+			color: #ACBABF;
+		}
 		
 
 	}
@@ -71,16 +74,19 @@
 	text-align: center;*/
 	width: 100%;
 	height: 100%;
-	padding-top: 105px;
-	padding-bottom: 105px;
+/*	padding-top: 105px;
+	padding-bottom: 105px;*/
 	border: solid;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-image: url("/assets/coins_pile.jpg");
 
 	.container {
 		background:rgba(0,0,0,0.5);
 		color: white;
 		text-align: center;
 		width: 100%;
-		padding: 100px 20px;
+		padding: 125px 20px;
 	}
 
 	
@@ -102,28 +108,46 @@ font-size: 15px;
 }
 
 .howto_images {
-	width: 100px;
+	width: 150px;
 	padding-top: 10px;
 	font-family: 'Roboto Slab', serif
 }
 
+
+.about_button {
+	text-align: center;
+	margin-top: 68px;
+}
+
+.about_button a{
+	font-size: 25px;
+	color: #7A98A5;
+}
+
+.about_button :hover {
+	text-decoration: none;
+	font-size: 25px;
+	color: white;
+}
+
 .howto_button {
 	text-align: center;
-	margin-top: 70px;
+	margin-top: 125px;
 }
 
 .howto_button a{
 	font-size: 25px;
-	color: rgb(108,108,108);
+	color: #7A98A5;
 }
 
 .howto_button :hover {
 	text-decoration: none;
+	font-size: 25px;
 	color: white;
 }
 
 .static_header {
-	
+
 	/*background-attachment: fixed;
 	background: url("/assets/IS09A8I2K.jpg") no-repeat;
 background-size: 100%;*/
@@ -142,7 +166,7 @@ background-size: 100%;*/
 }*/
 
 .venmo_sign_up_button {
-	margin: 0 43%;
+	text-align: center;
 	border-color: #284450;
 }
 
@@ -171,24 +195,30 @@ background-size: 100%;*/
 }
 
 .venmo_button_size:hover {
-		background-color: #3f94d0;
-}
+		background-color: #0c7d61;
+	}
+
 
 
 .company_logo img{
 	max-width: 200px;
-	margin: 50px 40% 0px;
+/*	margin: 50px 40% 0px;
+*/	margin-top: 50px;
 }
 
 .plzwork {
 	font-size: 18px;
 	padding: 2px 15px;
 	margin-left: 20px;
-	border: 2px solid #13B68D;
-	background-color: rgb(108,108,108);
-	color: #13B68D;
+	border: 2px solid #ACBABF;
+	background-color: #13B68D;
+	color: white;
 	border-radius: 2px;
 	display: inline;
+}
+
+.plzwork:hover {
+	text-decoration: none;
 }
 
 .company_summary span{
@@ -201,11 +231,13 @@ background-size: 100%;*/
 #about {
 	width: 100%;
 	height: 100%;
-	padding-top: 50px;
-/*	padding-bottom: 130px;
+/*	padding-top: 50px;
+*//*	padding-bottom: 130px;
 */	border: solid;
 	vertical-align: 50%;
-
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-image: url("/assets/card_test.jpg");
 
 	.container {
 		text-align: center;
@@ -215,12 +247,19 @@ background-size: 100%;*/
 
 }
 
+.container_outline {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.6)
+}
+
 .about_explanation {
 	text-align: center;
-	margin: 30px 150px;
+	margin: 30px 200px;
 	padding-top: 80px;
 	padding-bottom: 20px;
 	font-family: 'Roboto Slab', serif;
+	color: #C1C6CE;
 
 	span{
 	color: #13b68d ;
@@ -236,14 +275,27 @@ background-size: 100%;*/
 }
 
 .company_summary h1{
-	color: #204056;
+	color: #284450;
 	margin: 20px 0px;
 /*	text-align: center;*/
 	font-family: 'Roboto Slab', serif;
-
 
 	
 }
 .company_summary{
 	text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

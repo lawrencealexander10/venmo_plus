@@ -1,52 +1,50 @@
-
 <!-- Header -->
 <!-- <nav class="navbar navbar-default" role="navigation">  -->
-<div id="home">	
+<div id="home">
 	<div class="static_header">
 		<div class= "background_opacity">
-		  	<div class="container-fluid">
-		  	  <div class="row">
-		  		<div class="LoginHeader">
-		  		<h1>
-			  		<span><a href="#home">Seed</a> </span>
-			  		<div class="bnice">
-			  		<span>
-			  			<a href="#about">About</a> |
-			  			<a href="#howto">FAQ</a> 
-			  		</span>
-			  		<%= link_to "Login", new_user_session_path, :class => "plzwork", :method => :get%>
-			  			<!-- <button type="button" class=>       Login     </button> -->
-			  		</div>
-				</h1>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="LoginHeader">
+						<h1>
+						<span><a href="#home">| Seed |</a> </span>
+						<div class="bnice">
+							<span>
+							<a href="#about">About</a> |
+							<a href="#howto">FAQ</a>
+							</span>
+							<%= link_to "Login", new_user_session_path, :class => "plzwork", :method => :get%>
+							<!-- <button type="button" class=>       Login     </button> -->
+						</div>
+						</h1>
+					</div>
 				</div>
-			  </div>
-		  		<div class="row">
-			  		<div class="company_logo">
-			  			<img src="/assets/logo2Seed.png" alt="Logo">
-			  		</div>
-			  	</div>
-			  	<div class="summary_wrap">
-			  		<div class="row">
-					    <div class="company_summary">
-					    	<h1>
-		        				<span>Seed</span> Start investing in your friends and get rewarded
-		      				</h1>
-					    </div>
-				  	</div>
-				  	<div class="row">
-		      			<div class="venmo_sign_up_button">
-		          			<%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"venmo_button_size" %>
-		      			</div>
-	    			</div>
-	    			<div class="row">
-	    				<div class="howto_button">
-		      				<a href="#about">Learn More <span class="glyphicon glyphicon-chevron-down"></span></a>
-		      			</div>
-	    			</div>
-	    		</div>
-		  	</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-5 company_logo">
+						<img src="/assets/logo2Seed.png" alt="Logo">
+					</div>
+				</div>
+				<div class="summary_wrap">
+					<div class="row">
+						<div class="company_summary">
+							<h1>
+							<span>| Seed |</span> Start investing in your friends and get rewarded
+							</h1>
+						</div>
+					</div>
+					<div class="row">
+						<div class="venmo_sign_up_button col-md-4 col-md-offset-4">
+							<%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"venmo_button_size" %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="about_button">
+							<a href="#about">Learn More <span class="glyphicon glyphicon-chevron-down"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-  	</div>
+	</div>
 </div>
-
 <!-- </nav> -->

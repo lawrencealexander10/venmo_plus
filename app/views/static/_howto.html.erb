@@ -1,27 +1,30 @@
 <div id="howto">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-4">
-            <img class="howto_images" data-src="holder.js/140x140" alt="140x140" src="/assets/add89.svg">
-            <h2>Create User</h2>
-            <p>Click on the button above to sign up through Venmo to start setting up your account</p>
-  <!--           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-   -->        </div><!-- /.col-lg-4 -->
-          <div class="col-md-4">
-            <img class="howto_images" data-src="holder.js/140x140" alt="140x140" src="/assets/two205.svg/">
-            <h2>Connect with Investors</h2>
-            <p>Borrow money from your friends at low rates to help improve your credit standing, or set an amount of money for your friends borrow without risk </p>
-            <!-- <p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
+  <div class="container steps_border">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="howto_images" data-src="holder.js/140x140" alt="140x140" src="/assets/add89.svg">
+        <h2>Create User</h2>
+        <p>Click on the button above to sign up through Venmo to start setting up your account and view your dashboard.</p>
+        <!--           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        -->        </div><!-- /.col-lg-4 -->
+        <div class="col-md-4">
+          <img class="howto_images" data-src="holder.js/140x140" alt="140x140" src="/assets/two205.svg/">
+          <h2>Borrow Money</h2>
+          <p>Borrow money from your friends at low rates to help improve your credit standing, or set an amount of money for your friends borrow without risk </p>
+          <!-- <p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
           </div><!-- /.col-lg-4 -->
           <div class="col-md-4">
             <img class="howto_images" data-src="holder.js/140x140" alt="140x140" src="/assets/hand132.svg">
-            <h2>Ball Out</h2>
-            <p>Keep borrowing and watch your credit history grow. If you like lending just sit back, relax, and make dat GUAPPPP. </p>
+            <h2>Enjoy</h2>
+            <p>Keep borrowing and watch your credit history grow while having access to the on-demand-funding for all of your needs. </p>
             <!-- <p><a class="btn btn-default" href="#" role="button">View details »</a></p> -->
-          </div><!-- /.col-lg-4 -->
+            </div><!-- /.col-lg-4 -->
+          </div>
+          <div class="row">
+            <div class="venmo_sign_up_button col-md-4 col-md-offset-4">
+              <%= button_to "Sign Up With Venmo", user_omniauth_authorize_path(:venmo), :class =>"venmo_button_size" %>
+            </div>
+          </div>
+          
+        </div>
       </div>
-   
-  </div>  
-</div>
-
-

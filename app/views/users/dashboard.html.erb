@@ -1,71 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Seed | Social Lending</title>
-</head>
-<body style="background-color: #284450;">
-
-<%= render "header_DB" %>
-	<%= render "body_DB" %>	
-
-	<script type="text/javascript">
-	    $(window).load(function(){
-	        $('#myModal').modal('show');
-	    });
-	</script>
-
-
-	<!-- Set Collateral/Lending Funds Modal -->
-	<% if @account.collateral.nil?  %>
+	<head>
+		<meta charset="UTF-8">
+		<title>Seed | Social Lending</title>
+	</head>
+	<body style="background-color: #284450;">
+		<%= render "header_DB" %>
+		<%= render "body_DB" %>
+		<script type="text/javascript">
+		$(window).load(function(){
+		$('#myModal').modal('show');
+		});
+		</script>
+		<!-- Set Collateral/Lending Funds Modal -->
+		<% if @account.collateral.nil?  %>
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title" id="myModalLabel">Account Setup</h4>
-		      </div>
-
-		     <%= form_for(@account, method: 'put') do |f| %>
-		      <div class="modal-body">
-
-		      	<!-- Set Collateral Form -->
-
-		      	<div id="collateral_form">
-		      		<h4>Set Desired Collateral:</h4>
-		      		<%= "Your balance is: #{current_user.account.balance}" %>
-
-					<div class="form-group">
-						<%= f.number_field :collateral, placeholder: "Collateral" %>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Account Setup</h4>
 					</div>
-					<a href="#lending_form" class="toggle_forms_button"><%= button_to "Next"%></a>
+					<%= form_for(@account, method: 'put') do |f| %>
+					<div class="modal-body">
+						<!-- Set Collateral Form -->
+						<div id="collateral_form">
+							<h4>Set Desired Collateral:</h4>
+							<p> Your collateral will serve as a cushion to guarantee that you will always have the funds to pay back your loans in full. You can borrow up to 90% of your collateral at any time, ensuring that you can pay back both the original amount you borrowed and the added interest on the loan. </p>
+							<%= "Your balance is: #{current_user.account.balance}" %>
+							<div class="form-group">
+								<%= f.number_field :collateral, placeholder: "Collateral" %>
+							</div>
+							<a href="#lending_form" class="toggle_forms_button"><%= button_to "Next"%></a>
+						</div>
+						<!-- Set Lending Form -->
+						<!-- 		  <div class="modal-footer">
+							-->
+							<div id="lending_form">
+								<h4>Set Desired Lending Amount:</h4>
+								<p> When you set your loan amount, your friends will be able to automatically borrow from you. This will give you the opportunity to make money through the interest that your friends will pay you in addition to the original amount they borrowed.</p>
+								<div class="form-group">
+									<%= f.number_field :lending_funds, placeholder: "Lending Funds" %>
+								</div>
+								<div class="form-group">
+									<%= f.submit "Submit", :class => "btn" %>
+								</div>
+							</div>
+						</div>
+						<% end %>
+					</div>
 				</div>
-
-				<!-- Set Lending Form -->
-	<!-- 		  <div class="modal-footer">
-	 -->
-					<div id="lending_form">
-						<h4>Set Desired Lending Amount:</h4>
-			      		<%= "Your balance is: #{current_user.account.balance}" %>
-
-						<div class="form-group">
-							<%= f.number_field :lending_funds, placeholder: "Lending Funds" %>
-						</div>
-						<div class="form-group">
-							<%= f.submit "Submit", :class => "btn" %>
-						</div>
-					</div>
-			  </div>
-	  	     <% end %>
-		    </div>
-		  </div>
-		</div>
-	<% end %>
-<!--   		#Add pop-out description of what a collateral is.-->
-
-
-
-	
-</body>
-</html>
-	
+			</div>
+			<% end %>
+			<!--   		#Add pop-out description of what a collateral is.-->
+			
+		</body>
+	</html>
